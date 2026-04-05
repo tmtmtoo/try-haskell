@@ -1,6 +1,7 @@
 module Main (main) where
 
+add :: Int -> Int -> Int
+add x y = x + y
+
 main :: IO ()
-main = do
-    unit <- putStrLn "Hello world!!!!"
-    return unit
+main = print $ add 1 2
