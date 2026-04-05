@@ -1,15 +1,19 @@
 {
     "image": "ghcr.io/xtruder/nix-devcontainer:latest",
     "features": {},
-    "forwardPorts": [],
+    "postCreateCommand": "direnv allow /workspaces/try-haskell",
     "customizations": {
         "vscode": {
             "extensions": [
                 "jnoortheen.nix-ide",
                 "vscodevim.vim",
                 "haskell.haskell",
-                "justusadam.language-haskell"
-            ]
+                "justusadam.language-haskell",
+                "mkhl.direnv"
+            ],
+            "settings": {
+                "haskell.manageHLS": "PATH"
+            }
         }
     }
 }
