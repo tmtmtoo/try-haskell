@@ -1,4 +1,6 @@
 module Main (main) where
 
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+    unit <- putStrLn "Hello world!!!!"
+    return unit
