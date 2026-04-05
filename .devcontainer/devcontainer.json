@@ -1,8 +1,6 @@
 {
     "image": "ghcr.io/xtruder/nix-devcontainer:latest",
-    "features": {
-        "docker-in-docker": "latest"
-    },
+    "features": {},
     "forwardPorts": [],
     "customizations": {
         "vscode": {

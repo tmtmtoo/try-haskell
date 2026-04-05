@@ -10,26 +10,17 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-
-        haskell = pkgs.haskellPackages.override {
-          overrides = self: super: {
-            try-haskell = self.callCabal2nix "try-haskell" ./. { };
-          };
-        };
+        haskellPackages = pkgs.haskellPackages;
       in
       {
-        packages.default = pkgs.haskell.lib.justStaticExecutables
-          haskell.try-haskell;
-
-        devShells.default = haskell.shellFor {
-          packages = p: [ p.try-haskell ];
-          withHoogle = true;
+        devShells.default = pkgs.mkShell {
           buildInputs = [
-            haskell.haskell-language-server
-            haskell.cabal-install
-            haskell.hlint
-            haskell.fourmolu
-            haskell.ghcid
+            haskellPackages.haskell-language-server
+            haskellPackages.cabal-install
+            haskellPackages.hlint
+            haskellPackages.fourmolu
+            haskellPackages.ghcid
+            pkgs.ghc
           ];
         };
       });
