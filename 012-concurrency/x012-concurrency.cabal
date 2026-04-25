@@ -1,0 +1,35 @@
+cabal-version:      3.0
+name:               x012-concurrency
+version:            0.1.0.0
+synopsis:           Lesson 012 - forkIO, MVar, async, STM
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             tmtmtoo
+maintainer:         tmtmt2209@gmail.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md, README.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Lesson
+    build-depends:
+        base ^>=4.20.2.0,
+        async ^>=2.2,
+        stm ^>=2.5
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite x012-concurrency-test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.20.2.0,
+        hspec ^>=2.11,
+        stm ^>=2.5,
+        x012-concurrency
+    default-language: Haskell2010

@@ -1,3 +1,15 @@
 packages:
-  001-helloworld/
-  002-foobar/
+  001-basics/
+  002-types-and-typeclasses/
+  003-modules-and-project/
+  004-testing/
+  005-functor/
+  006-applicative/
+  007-monad/
+  008-foldable-traversable-monoid/
+  009-monads-in-practice/
+  010-monad-transformers/
+  011-io-and-exceptions/
+  012-concurrency/
+  013-strings-and-performance/
+  014-ecosystem-and-idioms/

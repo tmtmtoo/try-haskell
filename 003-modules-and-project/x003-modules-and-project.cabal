@@ -1,0 +1,35 @@
+cabal-version:      3.0
+name:               x003-modules-and-project
+version:            0.1.0.0
+synopsis:           Lesson 003 - Modules and Cabal package layout
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             tmtmtoo
+maintainer:         tmtmt2209@gmail.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md, README.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:
+        Lesson
+        Lesson.Stats
+    other-modules:
+        Lesson.Internal.Numeric
+    build-depends:    base ^>=4.20.2.0
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite x003-modules-and-project-test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.20.2.0,
+        hspec ^>=2.11,
+        x003-modules-and-project
+    default-language: Haskell2010

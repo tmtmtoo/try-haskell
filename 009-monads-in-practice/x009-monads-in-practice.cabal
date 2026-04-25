@@ -1,0 +1,34 @@
+cabal-version:      3.0
+name:               x009-monads-in-practice
+version:            0.1.0.0
+synopsis:           Lesson 009 - State / Reader / Writer / List / ST
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             tmtmtoo
+maintainer:         tmtmt2209@gmail.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md, README.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Lesson
+    build-depends:
+        base ^>=4.20.2.0,
+        mtl ^>=2.3
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite x009-monads-in-practice-test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.20.2.0,
+        hspec ^>=2.11,
+        mtl ^>=2.3,
+        x009-monads-in-practice
+    default-language: Haskell2010
