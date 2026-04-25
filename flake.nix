@@ -22,6 +22,7 @@
             haskellPackages.ghcid
             pkgs.ghc
           ];
+          LANG = "C.UTF-8";
         };
       });
 }

@@ -39,6 +39,10 @@ Haskell 入門カリキュラム。各ワークスペースに学習目標・要
 ## 進め方
 
 ```sh
+# 初回だけ: Hackage のパッケージリストを取得する
+# （やらないと async など外部パッケージが "unknown package" で解決できない）
+cabal update
+
 # 章のテストだけ走らせる
 cabal test x001-basics
 
