@@ -4,14 +4,15 @@ module Lesson.Stats
   , stddev
   ) where
 
--- TODO: Lesson.Internal.Numeric を qualified import して使うこと
--- import qualified Lesson.Internal.Numeric as N
+import qualified Lesson.Internal.Numeric as N
 
 mean :: [Double] -> Double
-mean = undefined
+mean list = N.total list / N.count list
 
 variance :: [Double] -> Double
-variance = undefined
+variance list = 
+  let m = mean list
+  in sum [(x - m) ** 2 | x <- list] / N.count list
 
 stddev :: [Double] -> Double
-stddev = undefined
+stddev = sqrt . variance 

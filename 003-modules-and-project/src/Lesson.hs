@@ -1,6 +1,8 @@
 module Lesson
-  ( -- TODO: Lesson.Stats を再エクスポートする
-    -- module Lesson.Stats
-  ) where
+  ( mean,
+    variance,
+    stddev,
+  )
+where
 
--- import Lesson.Stats
+import Lesson.Stats
