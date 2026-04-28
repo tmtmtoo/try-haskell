@@ -5,6 +5,7 @@ import Test.Hspec
 import Test.Hspec.QuickCheck (prop)
 
 import Lesson
+import Test.QuickCheck.Modifiers (NonNegative(NonNegative))
 
 main :: IO ()
 main = hspec $ do
@@ -43,4 +44,13 @@ main = hspec $ do
     -- 例:
     -- prop "reverseList is involutive" $ \xs ->
     --   reverseList (reverseList xs) == (xs :: [Int])
-    pure ()
+    prop "reverseList . reverseList == id" $ \xs ->
+      let f = reverseList . reverseList
+       in f xs == (xs :: [Int]) 
+
+    prop "sortList . sortList == sortList" $ \xs ->
+      let f = sortList . sortList
+       in f xs == sortList (xs :: [Int])
+
+    prop "myGcd a b == myGcd b a" $ \(NonNegative a) (NonNegative b) ->
+      myGcd a b == myGcd b a
